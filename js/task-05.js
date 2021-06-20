@@ -15,7 +15,7 @@ ref.input.addEventListener("input", onInput);
 
 function onInput(event) {
   if (ref.input.value === "") {
-    ref.name.textContent = "незнакомец";
+    return (ref.name.textContent = "незнакомец");
   }
   ref.name.textContent = ref.input.value;
 }
