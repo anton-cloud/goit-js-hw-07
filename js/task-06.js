@@ -28,11 +28,13 @@ const ref = {
   inputRef: document.querySelector("#validation-input"),
 };
 
-ref.inputRef.addEventListener("blur", () => {
-  if (ref.inputRef.value.length === +ref.inputRef.dataset.length) {
-    console.log(1);
-    ref.inputRef.classList.add("valid");
-  } else {
-    ref.inputRef.classList.add("invalid");
-  }
-});
+ref.inputRef.addEventListener("blur", onInput);
+
+function onInput() {
+  ref.inputRef.classList.add("invalid");
+  console.log(ref.inputRef);
+  const value = ref.inputRef.value.length === +ref.inputRef.dataset.length;
+  if (value) {
+    ref.inputRef.classList.replace("invalid", "valid");
+  } else ref.inputRef.classList.replace("valid", "invalid");
+}
